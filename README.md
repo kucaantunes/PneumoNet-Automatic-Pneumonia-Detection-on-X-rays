@@ -45,6 +45,7 @@ Figure 80 shows the Chest X-ray (Covid-19 & Pneumonia) (Prashant, 2020) (Dataset
 
 
 
+![image](https://github.com/user-attachments/assets/81b79153-843d-4e72-bd19-7c69208c6f62)
 
  
 
@@ -129,14 +130,18 @@ Figure 186 displays the number of images that are normal and with pneumonia on t
 Figure 186. Output of the Matlab code to display details of the Chest X-ray (Covid-19 & Pneumonia) dataset (Prashant, 2020) (Dataset 7).
 Figure 187 displays the training progress of using the ResNet-50 on the Chest X-ray (Covid-19 & Pneumonia) dataset (Prashant, 2020) (Dataset 7). The training progress window is a visual interface that displays the progress and key metrics during the training of a deep learning model. This window provides real-time updates on the training process, allowing users to monitor and analyze the performance of the model as it learns from the training data. When training a neural network using functions like trainNetwork, MATLAB offers a training progress window by default, which shows various details. The training progress plot illustrates the progress of key metrics, typically including training loss and validation loss over epochs or iterations. It allows to observe how these metrics change throughout the training process. Information such as accuracy, loss values, and other relevant metrics are updated and displayed in the window as the training progresses. The progress window visualizes the learning rate schedule, showing how the learning rate changes during training.The window displays validation metrics to assess the model's performance on data that it hasn't seen during training. It is possible to track the training process in real time, identifying potential issues or improvements as they arise. It facilitates the evaluation of the model's performance, allowing users to decide whether to continue training or adjust hyperparameters. If the model encounters problems like overfitting or slow convergence, the progress window helps in diagnosing these issues by visualizing the training dynamics.
 
- 
+ ![image](https://github.com/user-attachments/assets/9b6f4966-55f8-4395-85c3-7b3d7dea5d64)
+
 Figure 187. Training progress of applying the ResNet-50 on the Chest X-ray (Covid-19 & Pneumonia) dataset (Prashant, 2020) (Dataset 7).
 Figure 188 shows the confusion matrix of using the ResNet-50 on the Chest X-ray (Covid-19 & Pneumonia) dataset (Prashant, 2020) (Dataset 7). A confusion matrix is a tabular representation used in deep learning and classification tasks to evaluate the performance of a predictive model. It summarizes the performance of a classification algorithm by presenting the counts of true positive, true negative, false positive, and false negative predictions for each class in a tabular format. The TP was 1096, the FP 239, the FN 170 and the TN 3179.
  
 Figure 188. The confusion matrix of applying the ResNet-50 on the Chest X-ray (Covid-19 & Pneumonia) dataset (Prashant, 2020) (Dataset 7).
 The confusion matrix shows an accuracy of 91.3%, a precision of 82.1% and a recall of 86.6% from applying the ResNet-50 on the Chest X-ray (Covid-19 & Pneumonia) dataset (Prashant, 2020) (Dataset 7).
 Figure 189 shows the ROC curve of using the ResNet-50 on the Chest X-ray (Covid-19 & Pneumonia) dataset (Prashant, 2020) (Dataset 7). The AUC was 96.62%. The AUC is a metric used to evaluate the performance of a classification model, particularly in binary classification tasks. The ROC (Receiver Operating Characteristic) curve plots the true positive rate against the false positive rate at various threshold settings. The AUC metric summarizes the performance of a binary classification model across various classification thresholds, providing a consolidated measure of its ability to distinguish between the two classes. It's a widely used metric for evaluating the overall performance of classifiers, particularly in scenarios where balanced classification is crucial.
- 
+ ![image](https://github.com/user-attachments/assets/48de0364-18d6-4cd1-b1eb-b7c597b64c78)
+ ![image](https://github.com/user-attachments/assets/e1851435-3915-429c-ac86-ac34e0698108)
+
+
 Figure 189. The ROC curve of applying the ResNet-50 on the Chest X-ray (Covid-19 & Pneumonia) dataset (Prashant, 2020) (Dataset 7).
 Figure 190 shows some of the performance metrics calculated via MatLab of applying the ResNet-50 on the Chest X-ray (Covid-19 & Pneumonia) dataset (Prashant, 2020) (Dataset 7).
 
@@ -289,7 +294,8 @@ Figure 202 shows the use of the imageLIME function. LIME is a technique for expl
 By analyzing how the predictions change in response to the perturbations, imageLIME can generate local explanations of each pixel in the image. These explanations show how the pixel contributes to the predicted class. MATLAB provides a function called imageLIME that can be used to generate imageLIME explanations. The function takes a CNN model, an input image, and a surrogate model as input, and it returns a set of local explanations for each pixel in the image.
 
  
- 
+ ![image](https://github.com/user-attachments/assets/c1d2a1e1-2b53-4775-af1b-c5fbfc2d0633)
+
 Figure 202. MatLab code to use LIME on the classified images.
 
 
