@@ -717,3 +717,9 @@ Developed prototype on the chest X-Ray Images (Pneumonia) dataset (Mooney, 2018)
 
 
 The ResNet-50 showed and accuracy of 91.3% and the developed prototype of 96.7% on the Chest X-ray (Covid-19 & Pneumonia) (Prashant, 2020) (Dataset 7), the presented solution showed the highest AUC. The developed prototype was tested in 3 different datasets presenting AUC of 98.39%, 97.77% and 98.4% respectively. The results of the presented solution were compared with other known models like the ResNet-50 and AlexNet on t the Chest X-ray (Covid-19 & Pneumonia) (Prashant, 2020) (Dataset 7). This research presents a solution to be complemented with the traditional processes of detecting Covid-19 facilitating the work of the physicians.
+
+
+
+
+![image](https://github.com/user-attachments/assets/3e5b43c9-249f-4e31-aad7-f5f1ab949402)
+
