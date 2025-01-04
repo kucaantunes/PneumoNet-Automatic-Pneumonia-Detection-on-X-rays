@@ -704,5 +704,16 @@ Developed prototype on the labeled Optical Coherence Tomography and Chest X-Ray 
 Developed prototype on the chest X-Ray Images (Pneumonia) dataset (Mooney, 2018) (dataset 9)	97.7%	98.4%	92.5%	98.04%	99.5%	96.97%
 
 
+![image](https://github.com/user-attachments/assets/e0efa003-60b5-4110-86cb-236952d170a5)
+
+
+
+
+
+![image](https://github.com/user-attachments/assets/be1b6273-ddcf-44e2-b75c-4d3bdb4e4c6d)
+
+
+
+
 
 The ResNet-50 showed and accuracy of 91.3% and the developed prototype of 96.7% on the Chest X-ray (Covid-19 & Pneumonia) (Prashant, 2020) (Dataset 7), the presented solution showed the highest AUC. The developed prototype was tested in 3 different datasets presenting AUC of 98.39%, 97.77% and 98.4% respectively. The results of the presented solution were compared with other known models like the ResNet-50 and AlexNet on t the Chest X-ray (Covid-19 & Pneumonia) (Prashant, 2020) (Dataset 7). This research presents a solution to be complemented with the traditional processes of detecting Covid-19 facilitating the work of the physicians.
