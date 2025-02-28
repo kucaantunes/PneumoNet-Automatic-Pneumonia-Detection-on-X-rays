@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Results</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        h1, h2, h3 {
+            color: #81d4fa;
+        }
+        img {
+            display: block;
+            max-width: 100%;
+            margin: 20px auto;
+            border: 2px solid #333;
+            border-radius: 10px;
+        }
+        .section {
+            margin-top: 30px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .chat-container {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #263238;
+            border-radius: 10px;
+        }
+        .chat-box {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #37474f;
+            border-radius: 5px;
+        }
+        .chat-message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .chat-message.user {
+            background-color: #1e88e5;
+            color: white;
+            text-align: right;
+        }
+        .chat-message.bot {
+            background-color: #4caf50;
+            color: white;
+            text-align: left;
+        }
+        textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            resize: none;
+        }
+        button {
+            background-color: #1e88e5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #1565c0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chest X-ray Prediction Results</h1>
+        <img src="{{ image_path }}" alt="Uploaded X-ray Image">
+        
+        <div class="section">
+            <h2>Diagnosis</h2>
+            <p><strong>Prediction:</strong> {{ prediction }}</p>
+        </div>
+        
+        <div class="section">
+            <h2>BART Report</h2>
+            <p style="font-size: 20px;">{{ bart_report }}</p>
+        </div>
+        
+        <div class="section">
+            <h2>GPT-2 Report</h2>
+            <p style="font-size: 20px;">{{ gpt2_report }}</p>
+        </div>
+        
+        <div class="section">
+            <h2>GPT-Neo Report</h2>
+            <p style="font-size: 20px;">{{ gptneo_report }}</p>
+        </div>
+        
+        <div class="chat-container">
+            <h2>Doctor's Chat Assistant</h2>
+            <div class="chat-box" id="chat-box"></div>
+            <textarea id="chat-input" rows="4" placeholder="Ask a question..."></textarea>
+            <button onclick="sendChat()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const chatBox = document.getElementById('chat-box');
+        const chatInput = document.getElementById('chat-input');
+
+        async function sendChat() {
+            const question = chatInput.value.trim();
+            if (!question) return;
+
+            // Add user's message to chat
+            const userMessage = document.createElement('div');
+            userMessage.className = 'chat-message user';
+            userMessage.innerText = question;
+            chatBox.appendChild(userMessage);
+
+            // Scroll to the bottom of the chat
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            // Clear input
+            chatInput.value = '';
+
+            // Send message to server
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ question })
+            });
+
+            const data = await response.json();
+
+            // Add bot's response to chat
+            const botMessage = document.createElement('div');
+            botMessage.className = 'chat-message bot';
+            botMessage.innerText = data.answer || "Sorry, I couldn't process that.";
+            chatBox.appendChild(botMessage);
+
+            // Scroll to the bottom of the chat
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    </script>
+</body>
+</html>

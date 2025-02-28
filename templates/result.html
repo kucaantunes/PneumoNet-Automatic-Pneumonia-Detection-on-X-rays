@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pneumonia Prediction Result</title>
+    <h1 style="text-align: center; color: white;">Prediction Result: {{ result }}</h1>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+        .chat-box-container {
+            width: 50%;
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .chatbox {
+            height: 400px;
+            overflow-y: scroll;
+            margin-bottom: 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #333;
+        }
+        .chatbox .user-message {
+            color: blue;
+        }
+        .chatbox .bot-response {
+            color: green;
+        }
+        .input-container {
+            display: flex;
+            gap: 10px;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            background-color: #222;
+            color: white;
+        }
+        button {
+            width: 15%;
+            padding: 10px;
+            background-color: #444;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .uploaded-image {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="chat-box-container">
+            <h2 style="text-align: center; color: white;">MedBot</h2>
+            
+            <!-- Display uploaded image -->
+            <img src="{{ url_for('static', filename='uploaded_image.jpg') }}" alt="Uploaded Image" class="uploaded-image">
+
+            <h3 style="text-align: center; color: white;">Medical Report</h3>
+            <p style="text-align: center; color: white;">{{ report }}</p>
+            
+            <div class="chatbox" id="chatbox"></div>
+            <div class="input-container">
+                <input type="text" id="message" placeholder="Ask a question...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var message = document.getElementById("message").value;
+            if (message) {
+                var chatbox = document.getElementById("chatbox");
+                var userMessage = document.createElement("p");
+                userMessage.classList.add("user-message");
+                userMessage.innerText = "You: " + message;
+                chatbox.appendChild(userMessage);
+
+                fetch("/chat", {
+                    method: "POST",
+                    body: new URLSearchParams({ message: message }),
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" }
+                })
+                .then(response => response.text())
+                .then(data => {
+                    var botResponse = document.createElement("p");
+                    botResponse.classList.add("bot-response");
+                    botResponse.innerText = "Bot: " + data;
+                    chatbox.appendChild(botResponse);
+                });
+
+                document.getElementById("message").value = "";
+                chatbox.scrollTop = chatbox.scrollHeight;
+            }
+        }
+    </script>
+</body>
+</html>

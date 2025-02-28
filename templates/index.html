@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pneumonia Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h1>Upload an X-ray Image for Pneumonia Prediction</h1>
+            <form action="/" method="POST" enctype="multipart/form-data">
+                <input type="file" name="image" accept="image/*" required>
+                <button type="submit">Upload Image and Predict</button>
+            </form>
+        </div>
+        <div class="right">
+            <div class="chat-box">
+                <form action="/chat" method="POST">
+                    <input type="hidden" name="prediction" value="{{ result }}">
+                    <input type="text" name="user_message" placeholder="Ask the doctor..." required>
+                    <button type="submit">Send</button>
+                </form>
+                <div class="chat-response">
+                    {% if bot_response %}
+                        <p style="color:blue"><strong>You:</strong> {{ user_message }}</p>
+                        <p><strong>Doctor:</strong> {{ bot_response }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
