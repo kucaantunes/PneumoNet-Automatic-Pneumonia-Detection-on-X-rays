@@ -1,5 +1,7 @@
 # PneumoNet-Automatic-Pneumonia-Detection-on-X-rays
 
+Full source code at: https://drive.google.com/file/d/1bF83IhYM9-LV0vkdStr5LF6l1DctLwiI/view?usp=sharing
+
 6.	Automatic Pneumonia Detection on X-rays
 
 Concerning the detection of pneumonia on X-rays, the research used three different public datasets the Chest X-ray (Covid-19 & Pneumonia) (Prashant, 2020) (Dataset 7), the labeled Optical Coherence Tomography and Chest X-Ray Images for Classification dataset (Kermany, 2018) (Dataset 8) and the chest X-Ray Images (Pneumonia) dataset (Mooney, 2018) (dataset 9), in order to compare the results obtained with the work of other authors. 
