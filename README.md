@@ -2,7 +2,10 @@
 
 Full source code at: https://drive.google.com/file/d/1bF83IhYM9-LV0vkdStr5LF6l1DctLwiI/view?usp=sharing
 
-6.	Automatic Pneumonia Detection on X-rays
+Second version at: https://drive.google.com/file/d/1DTrQHqClN4SrwR8fB6WvwEmxaTm013fz/view?usp=sharing
+
+
+Automatic Pneumonia Detection on X-rays
 
 
  ![image](https://github.com/user-attachments/assets/195f0fa4-15b0-4e83-8149-3a00ab3c35bf)
